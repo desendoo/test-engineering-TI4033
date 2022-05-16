@@ -21,11 +21,11 @@ class UserServiceImplTest {
 	@BeforeAll
 	static void setupTest() {
 		// Dummy Class
-		user = Mockito.mock(User.class);
+		securityService = Mockito.mock(SecurityService.class);
 		
 		// Mock Object
+		user = Mockito.mock(User.class);
 		userDAO = Mockito.mock(UserDAO.class);
-		securityService = Mockito.mock(SecurityService.class);
 	
 		// System Under Test preparation
 		userServiceImplSUT = new UserServiceImpl(userDAO, securityService);
