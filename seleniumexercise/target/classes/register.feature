@@ -1,5 +1,32 @@
 Feature: Feature to test register functionality
 
+  Scenario Outline: Input the username into the form
+    Given Open the web browser
+    And The user is in the register page
+    And The user name to be entered "<firstname>" "<surname>"
+    When Input the username into the form
+    Examples:
+    | firstname | surname |
+    | Desendo   | Imanuel |
+
+#  Scenario Outline: Input the email into the form
+#    Given Open the web browser
+#    And The user is in the register page
+#    And The user name to be entered "<firstname>" "<surname>"
+#    When Input the email into the form
+#    Examples:
+#      | firstname | surname |
+#      | Desendo   | Imanuel |
+
+  Scenario Outline: Input the password into the form
+    Given Open the web browser
+    And The user is in the register page
+    And The password to be entered "<password>"
+    When Input the password into the form
+    Examples:
+      | password |
+      | myPassword123  |
+
   Scenario Outline: Check whether the reset button exist
     Given Open the web browser
     And The user is in the register page
@@ -20,6 +47,6 @@ Feature: Feature to test register functionality
     Examples:
       | button_type | button_value | response |
       | submit      | Create       | exist    |
-      |             | Create       | not exist    |
-      | submit      |              | not exist    |
+      |             | Create       | not exist |
+      | submit      |              | not exist |
       | create      | Create       | not exist |

@@ -11,7 +11,24 @@ public class RegisterFormTest {
     /**
      * This is a test to check whether the username (firstname and surname) is mandatory
      */
-    String firstname, surname, usernamenameCheckResult;
+    static String firstname, surname;
+    String usernamenameCheckResult;
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        firstname = firstname;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        surname = surname;
+    }
 
     private static Stream<Arguments> provideFirstnameAndSurname() {
         return Stream.of(
@@ -33,12 +50,12 @@ public class RegisterFormTest {
 //    @MethodSource("provideFirstnameAndSurname")
     @Given("The user name is {string} {string}")
     public void the_user_name_is(String string, String string2) {
-        this.firstname = string;
-        this.surname = string2;
+        firstname = string;
+        surname = string2;
     }
     @When("What is the firstname and surname characters length")
     public void what_is_the_firstname_and_surname_characters_length() {
-        usernamenameCheckResult = Register.usernameCheckLength(this.firstname, this.surname);
+        usernamenameCheckResult = Register.usernameCheckLength(firstname, surname);
     }
     @Then("The firstname length is {string}")
     public void the_firstname_length_is(String string) {

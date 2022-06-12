@@ -84,4 +84,28 @@ public class RegisterTest {
         chromeDriver.quit();
     }
 
+    /**
+     * This is a test case to input the username into the form
+     */
+    String firstname, surname, password;
+    @Given("The user name to be entered {string} {string}")
+    public void the_user_name_to_be_entered(String string, String string2) {
+        this.firstname = string;
+        this.surname = string2;
+    }
+    @When("Input the username into the form")
+    public void input_the_username_into_the_form() {
+        chromeDriver.findElement(By.id("user_firstname")).sendKeys(this.firstname);
+        chromeDriver.findElement(By.id("user_surname")).sendKeys(this.surname);
+    }
+    @Given("The password to be entered {string}")
+    public void the_password_to_be_entered(String string) {
+        this.password = string;
+    }
+    @When("Input the password into the form")
+    public void input_the_password_into_the_form() {
+        chromeDriver.findElement(By.id("user_user_detail_attributes_password")).sendKeys(this.password);
+        chromeDriver.findElement(By.id("user_user_detail_attributes_password_confirmation")).sendKeys(this.password);
+    }
+
 }
